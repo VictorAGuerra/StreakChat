@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>StreakChat</title>
+</head>
+<body>
+    <h1>StreakChat</h1>
+    <h4>{{user.name}}</h4>
+    <p>Streak: {{ user.streak }}</p>
+    
+    <a href="/home/addcontact">Add Contact</a><br/>
+    <a href="/logout">Logout</a>
+
+    <p>Highest Streaks</p>
+    {% if not user.contact_list %}
+    <p>No added contacts</p>
+    {%else%}
+    <table>
+        {%for contact in contacts%}
+        <tr>
+            <td>{{contact.name}}</td>
+            <td> | </td>
+            <td>Streak: {{contact.streak}}</td>
+            <td> | </td>
+        </tr>
+        {%endfor%}
+    </table>
+    {%endif%}
+</body>
